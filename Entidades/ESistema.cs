@@ -1,6 +1,6 @@
 ﻿namespace Calculadora_ValentinThourte
 {
-    internal enum ESistema
+    public enum ESistema
     {
         Binario,
         Decimal

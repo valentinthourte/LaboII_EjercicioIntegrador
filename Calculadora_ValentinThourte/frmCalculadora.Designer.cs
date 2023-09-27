@@ -71,13 +71,14 @@
             rbBinario.Name = "rbBinario";
             rbBinario.Size = new Size(62, 19);
             rbBinario.TabIndex = 1;
-            rbBinario.TabStop = true;
             rbBinario.Text = "Binario";
             rbBinario.UseVisualStyleBackColor = true;
+            rbBinario.CheckedChanged += rbBinario_CheckedChanged;
             // 
             // rbDecimal
             // 
             rbDecimal.AutoSize = true;
+            rbDecimal.Checked = true;
             rbDecimal.Location = new Point(19, 46);
             rbDecimal.Name = "rbDecimal";
             rbDecimal.Size = new Size(68, 19);
@@ -85,6 +86,7 @@
             rbDecimal.TabStop = true;
             rbDecimal.Text = "Decimal";
             rbDecimal.UseVisualStyleBackColor = true;
+            rbDecimal.CheckedChanged += rbDecimal_CheckedChanged;
             // 
             // lblSistemaResultado
             // 
@@ -131,6 +133,9 @@
             tbPrimerOperador.Name = "tbPrimerOperador";
             tbPrimerOperador.Size = new Size(191, 23);
             tbPrimerOperador.TabIndex = 6;
+            tbPrimerOperador.Text = "0";
+            tbPrimerOperador.TextChanged += tbPrimerOperador_TextChanged;
+            tbPrimerOperador.KeyPress += tbOperadores_KeyPress;
             // 
             // tbSegundoOperador
             // 
@@ -138,13 +143,16 @@
             tbSegundoOperador.Name = "tbSegundoOperador";
             tbSegundoOperador.Size = new Size(191, 23);
             tbSegundoOperador.TabIndex = 8;
+            tbSegundoOperador.Text = "0";
+            tbSegundoOperador.TextChanged += tbSegundoOperador_TextChanged;
+            tbSegundoOperador.KeyPress += tbOperadores_KeyPress;
             // 
             // cbOperacion
             // 
             cbOperacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cbOperacion.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             cbOperacion.FormattingEnabled = true;
-            cbOperacion.Items.AddRange(new object[] { "" });
+            cbOperacion.Items.AddRange(new object[] { "+", "-", "*", "/" });
             cbOperacion.Location = new Point(294, 326);
             cbOperacion.Name = "cbOperacion";
             cbOperacion.Size = new Size(191, 36);
@@ -159,6 +167,7 @@
             btnOperar.TabIndex = 9;
             btnOperar.Text = "Operar";
             btnOperar.UseVisualStyleBackColor = true;
+            btnOperar.Click += btnOperar_Click;
             // 
             // btnLimpiar
             // 
@@ -169,6 +178,7 @@
             btnLimpiar.TabIndex = 10;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnCerrar
             // 
@@ -179,6 +189,7 @@
             btnCerrar.TabIndex = 11;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // frmCalculadora
             // 
@@ -197,8 +208,12 @@
             Controls.Add(lblSistemaResultado);
             Controls.Add(panel1);
             Controls.Add(lblResultado);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmCalculadora";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculadora de Valentin Thourte";
+            FormClosing += frmCalculadora_FormClosing;
+            Load += frmCalculadora_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
