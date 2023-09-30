@@ -12,7 +12,7 @@ namespace Calculadora_ValentinThourte
         private ESistema sistema;
         private double valorNumerico;
 
-        public ESistema Sistema { get; }
+        public ESistema Sistema { get => this.sistema; }
         public string Valor
         {
             get
@@ -168,21 +168,43 @@ namespace Calculadora_ValentinThourte
             double.TryParse(valor, out this.valorNumerico);
         }
 
-        public static double operator +(Numeracion numero1, Numeracion numero2)
+        public static Numeracion operator +(Numeracion numero1, Numeracion numero2)
         {
-            return double.Parse(numero1.ConvertirA(ESistema.Decimal)) + double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            var valor = double.MinValue;
+            if (numero1 == numero2)
+            {
+                valor = double.Parse(numero1.ConvertirA(ESistema.Decimal)) + double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            }
+            return new Numeracion(valor, numero1.Sistema);
         }
-        public static double operator -(Numeracion numero1, Numeracion numero2)
+        public static Numeracion operator -(Numeracion numero1, Numeracion numero2)
         {
-            return double.Parse(numero1.ConvertirA(ESistema.Decimal)) - double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            var valor = double.MinValue;
+            if (numero1 == numero2)
+            {
+                valor = double.Parse(numero1.ConvertirA(ESistema.Decimal)) - double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            }
+            return new Numeracion(valor, numero1.Sistema);
         }
-        public static double operator *(Numeracion numero1, Numeracion numero2)
+        public static Numeracion operator *(Numeracion numero1, Numeracion numero2)
         {
-            return double.Parse(numero1.ConvertirA(ESistema.Decimal)) * double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            var valor = double.MinValue;
+            if (numero1 == numero2)
+            {
+                valor = double.Parse(numero1.ConvertirA(ESistema.Decimal)) * double.Parse(numero2.ConvertirA(ESistema.Decimal));
+
+            }
+            return new Numeracion(valor, numero1.Sistema);
         }
-        public static double operator /(Numeracion numero1, Numeracion numero2)
+        public static Numeracion operator /(Numeracion numero1, Numeracion numero2)
         {
-            return double.Parse(numero1.ConvertirA(ESistema.Decimal)) / double.Parse(numero2.ConvertirA(ESistema.Decimal));
+            var valor = double.MinValue;
+            if (numero1 == numero2)
+            {
+                valor = double.Parse(numero1.ConvertirA(ESistema.Decimal)) / double.Parse(numero2.ConvertirA(ESistema.Decimal));
+
+            }
+            return new Numeracion(valor, numero1.Sistema);
         }
         public static bool operator ==(Numeracion numero1, Numeracion numero2) => numero1.Sistema == numero2.Sistema;
         public static bool operator !=(Numeracion numero1, Numeracion numero2) => numero1.Sistema != numero2.Sistema;

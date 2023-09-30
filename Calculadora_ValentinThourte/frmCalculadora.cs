@@ -25,14 +25,16 @@ namespace Calculadora_ValentinThourte
 
         private void Operar()
         {
-            ActualizarOperandos();
-            resultado = calculadora.Operar(OperacionSeleccionada);
-            setResultado();
-        }
-
-        private bool PuedoOperar()
-        {
-            return OperacionSeleccionada is not null;
+            try
+            {
+                ActualizarOperandos();
+                resultado = calculadora.Operar(OperacionSeleccionada);
+                setResultado();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ActualizarOperandos()
@@ -81,7 +83,7 @@ namespace Calculadora_ValentinThourte
             }
             else
             {
-                MessageBox.Show($"El valor {valorIngresado} no es válido. Inténtelo nuevamente.");
+                throw new Exception($"El valor {valorIngresado} no es válido. Inténtelo nuevamente.");
             }
         }
 

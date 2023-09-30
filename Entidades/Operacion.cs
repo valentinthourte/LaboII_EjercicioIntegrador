@@ -26,34 +26,34 @@ namespace Calculadora_ValentinThourte
         }
         public Numeracion Operar(char operador)
         {
-            double resultadoNumerico;
+            Numeracion resultado;
 
             switch (operador)
             {
 
                 case '-':
                     {
-                        resultadoNumerico = primerOperando - segundoOperando;
+                        resultado = primerOperando - segundoOperando;
                         break;
                     }
                 case '*':
                     {
-                        resultadoNumerico = primerOperando * segundoOperando;
+                        resultado = primerOperando * segundoOperando;
                         break;
                     }
                 case '/':
                     {
-                        resultadoNumerico = primerOperando / segundoOperando;
+                        resultado = primerOperando / segundoOperando;
                         break;
                     }
                 case '+':
                 default:
                     {
-                        resultadoNumerico = primerOperando + segundoOperando;
+                        resultado = primerOperando + segundoOperando;
                         break;
                     }
             }
-            return new Numeracion(resultadoNumerico, ESistema.Decimal);
+            return resultado;
         }
 
         public void ActualizarOperandos(Numeracion primerOperando, Numeracion segundoOperando)
