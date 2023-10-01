@@ -134,7 +134,6 @@
             tbPrimerOperador.Size = new Size(191, 23);
             tbPrimerOperador.TabIndex = 6;
             tbPrimerOperador.Text = "0";
-            tbPrimerOperador.TextChanged += tbPrimerOperador_TextChanged;
             tbPrimerOperador.KeyPress += tbOperadores_KeyPress;
             // 
             // tbSegundoOperador
@@ -144,7 +143,6 @@
             tbSegundoOperador.Size = new Size(191, 23);
             tbSegundoOperador.TabIndex = 8;
             tbSegundoOperador.Text = "0";
-            tbSegundoOperador.TextChanged += tbSegundoOperador_TextChanged;
             tbSegundoOperador.KeyPress += tbOperadores_KeyPress;
             // 
             // cbOperacion

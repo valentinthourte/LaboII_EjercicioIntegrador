@@ -68,11 +68,8 @@ namespace Calculadora_ValentinThourte
 
         private void tbOperadores_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Validador.TeclaPresionadaEsNumero(e.KeyChar);
-        }
-
-        private void tbPrimerOperador_TextChanged(object sender, EventArgs e)
-        {
+            char[] caracteresPermitidos = { (char)Keys.Back };
+            e.Handled = Validador.TeclaPresionadaEsNumero(e.KeyChar, caracteresPermitidos);
         }
 
         private void ActualizarOperando(Numeracion operando, string valorIngresado)
@@ -115,10 +112,6 @@ namespace Calculadora_ValentinThourte
             primerOperando = new Numeracion(NumeroPrimerOperador(), ESistema.Decimal);
             segundoOperando = new Numeracion(NumeroSegundoOperador(), ESistema.Decimal);
             calculadora = new Operacion(primerOperando, segundoOperando);
-        }
-
-        private void tbSegundoOperador_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

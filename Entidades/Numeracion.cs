@@ -13,13 +13,7 @@ namespace Calculadora_ValentinThourte
         private double valorNumerico;
 
         public ESistema Sistema { get => this.sistema; }
-        public string Valor
-        {
-            get
-            {
-                return GetValor();
-            }
-        }
+        public string Valor { get => this.GetValor(); }
 
         private string GetValor()
         {
@@ -43,7 +37,8 @@ namespace Calculadora_ValentinThourte
 
         public Numeracion(double valor, ESistema sistema)
         {
-            InicializarValores(valor.ToString(), sistema);
+            this.valorNumerico = valor;
+            this.sistema = sistema;
         }
 
         public Numeracion(string valor, ESistema sistema)
@@ -65,25 +60,15 @@ namespace Calculadora_ValentinThourte
             int index;
             double valorAbsoluto = Math.Abs(valor);
             List<int> doubles = new List<int>();
-            for (index = 0; valorAbsoluto > 1; index++)
+            for (index = 0; valorAbsoluto >= 1; index++)
             {
                 doubles.Add((int)valorAbsoluto % 2);
                 valorAbsoluto = valorAbsoluto / 2;
             }
             string binario = "";
-            bool sonTodosCero = true;
             foreach (var element in doubles)
             {
-                if (element != 0)
-                {
-                    sonTodosCero = false;
-                }
                 binario = element.ToString() + binario;
-            }
-
-            if(valorAbsoluto > 0 && sonTodosCero)
-            {
-                binario = "1" + binario;
             }
 
             return binario;

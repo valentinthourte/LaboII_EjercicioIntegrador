@@ -8,9 +8,9 @@ namespace Entidades
 {
     public static class Validador
     {
-        public static bool TeclaPresionadaEsNumero(char tecla)
+        public static bool TeclaPresionadaEsNumero(char tecla, char[] caracteresPermitidos)
         {
-            return (!(char.IsDigit(tecla))); //|| tecla == (char)Keys.Back));
+            return !(char.IsDigit(tecla)) || (caracteresPermitidos.ToList().Contains(tecla));
         }
     }
 }
